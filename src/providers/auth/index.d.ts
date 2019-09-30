@@ -1,17 +1,16 @@
 export interface IUser {
   name: string;
-  surname: string;
   email: string;
-  avatar: string;
+  picture?: string;
+  userId: string;
 }
-
 export interface IAuthState {
   isAuth: boolean;
   user?: IUser;
 }
 
 export interface ActionPayload {
-  userInfo: ReactFacebookLoginInfo;
+  userInfo: IUser;
 }
 
 export interface IAuthAction {

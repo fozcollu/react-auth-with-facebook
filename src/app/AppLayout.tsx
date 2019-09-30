@@ -12,7 +12,7 @@ interface IProps {
 const AppLayout: React.FunctionComponent<IProps> = props => {
   const { children } = props;
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh", backgroundColor: "#eee" }}>
       <AppHeader />
       <Layout>
         <AppMenu />
@@ -24,7 +24,7 @@ const AppLayout: React.FunctionComponent<IProps> = props => {
           </Breadcrumb>
           <Content
             style={{
-              background: "#fff",
+              background: "#f0f2f5",
               padding: 24,
               margin: 0
             }}

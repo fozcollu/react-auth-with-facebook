@@ -38,9 +38,7 @@ const UserMenu: React.FunctionComponent = props => {
     if (isAuth && user) {
       return (
         <React.Fragment>
-          <Typography.Paragraph>
-            {user.name} {user.surname}
-          </Typography.Paragraph>
+          <Typography.Paragraph>{user.name}</Typography.Paragraph>
           <Menu style={{ border: "none" }}>
             <Menu.Item key="0">
               <Icon type="shopping-cart" />
@@ -84,18 +82,18 @@ const UserMenu: React.FunctionComponent = props => {
         onCancel={toggleLoginModal}
         footer={null}
       >
-        <LoginPage />
+        <LoginPage callback={toggleLoginModal} />
       </Modal>
     );
   };
   const signUpModal = () => {
     return (
       <Modal
-        visible={visibleLoginModal}
-        onCancel={toggleLoginModal}
+        visible={visibleSignUpModal}
+        onCancel={toggleSignUpModal}
         footer={null}
       >
-        <SignUpPage />
+        <SignUpPage callback={toggleSignUpModal} />
       </Modal>
     );
   };

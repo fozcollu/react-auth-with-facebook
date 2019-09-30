@@ -1,7 +1,6 @@
-import { IAuthState, IAuthAction } from "../index.d";
+import { IAuthState, IAuthAction, IUser } from "../index.d";
 import { signOut } from "../actions/signout";
 import { ActionType } from "../enum";
-import { ReactFacebookLoginInfo } from "react-facebook-login";
 
 export default function authReducer(
   state: IAuthState,
@@ -10,16 +9,15 @@ export default function authReducer(
   switch (type) {
     case ActionType.LOGIN:
       if (!payload || !payload.userInfo) return state;
-      debugger;
-      const user = payload.userInfo as ReactFacebookLoginInfo;
+      const user = payload.userInfo as IUser;
       return {
         ...state,
         isAuth: true,
         user: {
           name: user.name!,
-          surname: "",
+          picture: user.picture,
           email: user.email!,
-          avatar: ""
+          userId: user.userId!
         }
       };
     case ActionType.SIGNUP:
